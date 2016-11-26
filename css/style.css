@@ -1,0 +1,183 @@
+h1 {
+	color: blue;
+}
+
+
+
+/*#grid1 {
+	position: relative;
+}*/
+
+/*.block1 div {
+	display: inline-block;
+	vertical-align: top;
+	margin: 2px;
+}*/
+
+/*.block2 div {
+	width: 90px;
+	height: 90px;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid black;
+	margin: 2px;
+}*/
+
+/*img {
+	
+	object-position: 0 0;
+}*/
+
+
+/*Originals below:*/
+/*.piece {
+	background-image: url('../img/frs.jpg');
+	background-repeat: no-repeat;
+	width: 50px;
+	height: 50px;
+	background-size: 250px 250px;
+}*/
+
+/*This works!*/
+#image1 {
+	background-position: 0px 0px;
+}
+#image2 {
+	background-position: -90px 0px;
+}
+
+#image3 {
+	background-position: -180px 0px;
+}
+
+#image4 {
+	background-position: -270px 0px;
+}
+
+#image5 {
+	background-position: -360px 0px;
+}
+
+#image6 {
+	background-position: 0px -90px;
+}
+
+#image7 {
+	background-position: -90px -90px;
+}
+
+#image8 {
+	background-position: -180px -90px;
+}
+
+#image9 {
+	background-position: -270px -90px;
+}
+
+#image10 {
+	background-position: -360px -90px;
+}
+
+#image11 {
+	background-position: 0px -180px;
+}
+
+#image12 {
+	background-position: -90px -180px;
+}
+
+#image13 {
+	background-position: -180px -180px;
+}
+
+#image14 {
+	background-position: -270px -180px;
+}
+
+#image15 {
+	background-position: -360px -180px;
+}
+
+#image16 {
+	background-position: 0px -270px;
+}
+
+
+#image17 {
+	background-position: -90px -270px;
+}
+
+#image18 {
+	background-position: -180px -270px;
+}
+
+#image19 {
+	background-position: -270px -270px;
+}
+
+#image20 {
+	background-position: -360px -270px;
+}
+
+#image21 {
+	background-position: 0px -360px;
+}
+
+#image22 {
+	background-position: -90px -360px;
+}
+
+#image23 {
+	background-position: -180px -360px;
+}
+
+#image24 {
+	background-position: -270px -360px;
+}
+
+#image25 {
+	background-position: -360px -360px;
+}
+
+
+.piece {
+	background: url('../img/frs.jpg');
+	display: inline-block;
+	/*object-position: 0 0;
+	background-repeat: no-repeat;*/
+	/*object-fit: scale-down;*/
+	width: 90px;
+	height: 90px;
+	background-size: 450px 450px;
+	vertical-align: top;
+	margin: 2px;
+	border-radius: 5px;
+}
+
+.slot {
+	width: 90px;
+	height: 90px;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid black;
+	margin: 0px;
+	border-radius: 5px;
+	margin: 2px;
+}
+
+
+/*
+#image2 {
+	object-position: 50px 0px;
+}
+*/
+
+#timer {
+	border: 1px solid black;
+}
+
+
+
+
+
+
