@@ -13,7 +13,9 @@
 	<div class='container'>
 		<div class="row">
 			<div class="col-md-3">
-				<h1>Time: ?</h1>
+				<!-- <h1>Time: <span id="timer"><span id="minutes"></span>:<span id="seconds"></span></span></h1> -->
+				<h1>Time: <span id="timer"><span id="my_timer">00:00:00</span></span></h1>
+				
 			</div>
 
 		</div>
@@ -52,8 +54,10 @@
 		//V2:
 
 		$(document).ready(function(){
+			
 			var count = 0;
 			var grid = [];
+			
         	for (var i = 0; i < 25; i++) {
 				grid.push(0);
 			}
@@ -76,12 +80,14 @@
 			$('.slot, grid1').droppable({
 				accept: ".piece",
 				tolerance: 'pointer',
+
 				drop: function(ev, ui) {
         			$(ui.draggable).detach().css({top: -3,left: -3}).appendTo(this);
         			// console.log($(this).attr('value'));
         			var piece = $(this).attr('value');
         			// console.log(piece);
         			var slot = ui.draggable.attr('value');
+
         			
         			// console.log(slot);
         			if ((slot == piece) && (grid[slot -1] == 0)){
@@ -90,16 +96,20 @@
         				console.log(count);
         				console.log(grid);
         				if (count == 25) {
-							alert("YOU WIN!");
+							alert("YOU WIN!! Your time was: " + (document.getElementById('my_timer').innerHTML) + "!");
+							changeState();
+							console.log(document.getElementById("my_timer").innerHTML);
 						}
         				// alert("HEYOO!!");
         			}
         			
 
         			
-    			}		
+    			}
+
+    		});
 				
-			});
+			
 
 
 			$(".piece").hover(function() {
@@ -111,9 +121,72 @@
 	        		"box-shadow", "0px 0px 0px #888"
 			    );
 			});
-
+			changeState();
 			
 		});
+
+
+
+		//Timer:
+
+		// var sec = 0;
+		// 	function pad ( val ) { return val > 9 ? val : "0" + val; }
+		// 	setInterval( function(){
+		// 	    var seconds = $("#seconds").html(pad(++sec%60));
+		// 	    var minutes = $("#minutes").html(pad(parseInt(sec/60,10)));
+		// 	}, 1000);
+		// 	console.log;
+
+
+		//Timer2:
+
+		var active = false;
+
+		function start_timer() {
+			if (active) {
+				var timer = document.getElementById("my_timer").innerHTML;
+				var arr = timer.split(":");
+				var hour = arr[0];
+				var min = arr[1];
+				var sec = arr[2];
+
+				if (sec == 59) {
+					if (min == 59) {
+						hour++;
+						min = 0;
+						if (hour < 10) hour = "0" + hour;
+					}
+					else {
+						min++;
+					}
+					if (min < 10) min = "0" + min;
+					sec = 0;
+				}
+				else {
+					sec++;
+					if (sec < 10) sec = "0" + sec;
+				}
+
+			document.getElementById("my_timer").innerHTML = hour + ":" + min + ":" + sec;
+			setTimeout(start_timer, 1000);
+			}
+		}
+
+		function changeState() {
+			if (active == false) {
+				active = true;
+				start_timer();
+				console.log("Time has been started");
+				// document.getElementById("control").innerHTML = "PAUSE";
+			}
+			else {
+				active = false;
+				console.log("Timer is on pause");
+				// document.getElementById("control").innerHTML = "START";
+			}
+		}
+
+
 
 
 
