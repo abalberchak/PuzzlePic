@@ -15,7 +15,7 @@
 			<div class="col-md-3">
 				<!-- <h1>Time: <span id="timer"><span id="minutes"></span>:<span id="seconds"></span></span></h1> -->
 				<h1>Time: <span id="timer"><span id="my_timer">00:00:00</span></span></h1>
-				
+
 			</div>
 
 		</div>
@@ -30,7 +30,7 @@
 				<div id="grid2"></div>
 			</div>
 		</div>
-		
+
 
 	</div>
 
@@ -40,29 +40,41 @@
 	<script>
 
 	//JQuery:
-		
+
 		// $(document).ready(function(){
 		// 	$('.piece').draggable();
 		// 	$('.slot').droppable({
 		// 		drop: function(ev, ui) {
   //       			$(ui.draggable).detach().css({top: 0,left: 0}).appendTo(this);
-  //   			}		
-				
+  //   			}
+
 		// 	});
 		// });
 
 		//V2:
 
 		$(document).ready(function(){
-			
+
+			// $( "form" ).dialog({
+			// 	open: function() {
+			// 			var username = $("#username").val();
+			// 			var age = $("#age").val();
+			// 	},
+			// 	buttons: [{
+			// 		text: "Submit",
+			// 		click: $.noop,
+			// 		type: "submit"
+			// 	}]
+			// });
+
 			var count = 0;
 			var grid = [];
-			
+
         	for (var i = 0; i < 25; i++) {
 				grid.push(0);
 			}
 			console.log(grid);
-			
+
 			$('.piece').draggable({
 				revert: "invalid",
     			snap: ".slot",
@@ -74,7 +86,7 @@
     			drag: function(ev, ui) {
     				// console.log($(this).attr('value'));
     			}
-    			
+
 			});
 
 			$('.slot, grid1').droppable({
@@ -88,7 +100,7 @@
         			// console.log(piece);
         			var slot = ui.draggable.attr('value');
 
-        			
+
         			// console.log(slot);
         			if ((slot == piece) && (grid[slot -1] == 0)){
         				grid[slot -1] = 1;
@@ -102,14 +114,14 @@
 						}
         				// alert("HEYOO!!");
         			}
-        			
 
-        			
+
+
     			}
 
     		});
-				
-			
+
+
 
 
 			$(".piece").hover(function() {
@@ -122,7 +134,7 @@
 			    );
 			});
 			changeState();
-			
+
 		});
 
 
@@ -190,7 +202,7 @@
 
 
 
-		
+
 
 		//Creating the 1st Grid (OLD):
 
@@ -295,7 +307,7 @@
 		// 		}
 		// 		output += "\n</div>";
 		// 	}
-			
+
 		// 	document.getElementById('grid2').innerHTML = output;
 
 		// }
@@ -337,17 +349,17 @@
         				console.log(score);
         			}
 		}
-		
-		
-
-
-		
 
 
 
 
 
-		
+
+
+
+
+
+
 
 
 
@@ -355,6 +367,6 @@
 
 
 	</script>
-	
+
 </body>
 </html>
