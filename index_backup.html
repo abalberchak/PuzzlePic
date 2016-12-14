@@ -230,6 +230,16 @@
 
 
 
+		//Timer:
+
+		// var sec = 0;
+		// 	function pad ( val ) { return val > 9 ? val : "0" + val; }
+		// 	setInterval( function(){
+		// 	    var seconds = $("#seconds").html(pad(++sec%60));
+		// 	    var minutes = $("#minutes").html(pad(parseInt(sec/60,10)));
+		// 	}, 1000);
+		// 	console.log;
+
 
 		//Timer2:
 
@@ -283,6 +293,46 @@
 
 
 
+		
+
+		//Creating the 1st Grid (OLD):
+
+		// var grid1 = [
+		// 	[0,0,0,0,0],
+		// 	[0,0,0,0,0],
+		// 	[0,0,0,0,0],
+		// 	[0,0,0,0,0],
+		// 	[0,0,0,0,0]
+		// ];
+
+
+		// function renderGrid1() {
+		// 	var output = '';
+		// 	var count = 0;
+
+		// 	for (var i = 0; i < grid1.length; i++) {
+		// 		output += "\n<div class='block1'>\n";
+		// 		for(var j = 0; j < grid1[i].length; j++) {
+		// 			count++;
+		// 			if(grid1[i][j] == 0) {
+		// 				output += "\n<div class='piece' id="+count+"></div>\n";
+		// 			}
+		// 		}
+		// 		output += "\n</div>";
+		// 	}
+		// 	console.log(output);
+
+		// 	document.getElementById('grid1').innerHTML = output;
+
+		// }
+		// renderGrid1();
+
+
+//Uncomment above!!!!!!!-------------------------------------
+
+
+
+
 	// Creating the 1st Grid (V2):
 		var randomizer = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 
@@ -308,6 +358,27 @@
 			// console.log(grid1);
 
 
+		//Randomizer 2
+
+
+			// console.log(grid1);
+
+
+			//V1
+		// function renderGrid1() {
+		// 	var output = '';
+		// 	for (var i = 0; i < grid1.length; i++) {
+		// 		output += "\n<div class='block1'>\n";
+		// 		for(var j = 0; j < grid1[i].length; j++) {
+		// 			output += "\n<div class='piece' id='image"+grid1[i][j]+"' value='"+grid1[i][j]+"'></div>\n";
+		// 			// console.log(output);
+		// 		}
+		// 		output += "\n</div>";
+		// 	}
+		// 	// console.log(output);
+		// 	document.getElementById('grid1').innerHTML = output;
+		// }
+		// renderGrid1();
 
 
 
@@ -320,7 +391,7 @@
 				output += "\n<div class='block1'>\n";
 				for(var j = 0; j < grid1[i].length; j++) {
 					var col = ((grid1[i][j] - 1) % 5);
-					var row = (((grid1[i][j] -1 ) - ((grid1[i][j] -1) % 5)) / 5)
+					var row = (((grid1[i][j] -1 ) - ((grid1[i][j] - 1) % 5)) / 5)
 					output += "\n<div class='piece' id='image"+grid1[i][j]+"' value='"+grid1[i][j]+"' style='background-position: " + (col * -90) + "px " + (row * -90) + "px;'></div>\n";
 					// console.log(output);
 					console.log(col);
@@ -364,6 +435,17 @@
 		renderGrid2();
 
 
+		//Winner Logic
+		var score = 0;
+		function checkForWinner() {
+			// if ($('.piece').attr('value') == ($('.slot').attr('value'))) {
+				if ((slot) == (piece)) {
+        				score++;
+        				console.log(score);
+        			}
+		}
+		
+		
 
 
 		

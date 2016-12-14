@@ -39,7 +39,7 @@ h1 {
 }*/
 
 /*This works!*/
-#image1 {
+/*#image1 {
 	background-position: 0px 0px;
 }
 #image2 {
@@ -137,7 +137,7 @@ h1 {
 
 #image25 {
 	background-position: -360px -360px;
-}
+}*/
 
 
 .piece {
@@ -152,6 +152,7 @@ h1 {
 	vertical-align: top;
 	margin: 2px;
 	border-radius: 5px;
+
 }
 
 .slot {
@@ -178,7 +179,9 @@ h1 {
 }
 
 
-
+#bank {
+	display: inline-block;
+}
 
 
 
