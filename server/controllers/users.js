@@ -1,41 +1,32 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-module.exports = {
-  index: function(req, res) {
-    User.find({}, function(err, user) {
-      if (err) {console.long(err);}
-      res.render('index', { users:user });
-    });
-  },
-  show: function(req, res) {
-    var users = User.findOne({_id: req.params.id }, function(submitted_info) {
-      res.render("show", {users: submitted_info});
-    })
-  },
-  create: function(req, res) {
-    mongoose.Promise = global.Promise;
+function UsersController() {
 
-    console.log('Body:',req.body)
-    var users = new User({username: req.body.username});
-
-    users.save(function(err, submitted_info) {
-      if(err) {console.log('something went creating wrong');
+  this.create = function(req, res) {
+    User.create(req.body, function(err, user) {
+      if(err) {
+        console.log("Something went wrong with creating a User");
       } else {
-        console.log('The Game Will Start in 5...');
-        res.render('show', { users: submitted_info});
-      }
-    })
-  },
-  destroy: function(req, res) {
-    var users = User.findOne({_id: req.params.id });
-
-    users.remove({_id: req.params.id}, function(err, submitted_info) {
-      if(err) {console.log("something went destroying wrong");
-      } else {
-        console.log("successfully deleted User");
-        res.redirect('show', { users: submitted_info});
+        res.json(user);
       }
     })
   }
-}
+
+  this.update = function(req, res) {
+    User.findOne({_id: req.params.id}, function(err, user) {
+      if(err) {
+        console.log("Something went wrong with finding User for update")
+      } else {
+        user.username = req.body.username;
+        friend.save(function(err, updatedUser) {
+          if(err) {
+            console.log("Something went wrong with saving the User's new update")
+          } else {
+            res.json(updatedUser);
+          }
+        })
+      }
+    })
+  }
+};
